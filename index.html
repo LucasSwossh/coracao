@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#020916">
+  <meta name="description" content="Um coração de vidro azul. Uma experiência sobre fragmentar, reconstruir e encontrar luz.">
+  <title>Inteiro — coração de vidro</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 34C3 23 1 14 7 8c5-5 10-2 13 2 3-4 8-7 13-2 6 6 4 15-13 26Z' fill='%231751a6' stroke='%2379d9ff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="player.js" defer></script>
+</head>
+<body>
+  <main id="scene" tabindex="0" aria-label="Coração de vidro interativo. Arraste com mouse ou dedo para inclinar suavemente em qualquer direção, com retorno ao centro ao soltar, ou use as setas do teclado. Pressione Enter ou espaço três vezes para quebrar. Depois, use Tab para escolher cada fragmento e Enter para reconstruir.">
+    <div class="atmosphere" aria-hidden="true"></div>
+    <div class="nebula" aria-hidden="true"></div>
+    <canvas id="space" aria-hidden="true"></canvas>
+    <canvas id="glass" aria-hidden="true"></canvas>
+    <svg id="fallback" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" hidden></svg>
+    <canvas id="light" aria-hidden="true"></canvas>
+    <div id="fragment-targets"></div>
+    <p id="message" class="message" aria-live="polite"></p>
+    <p id="status" class="sr-only" role="status"></p>
+    <noscript><p class="no-script">Ative o JavaScript para explorar o coração.</p></noscript>
+  </main>
+  <aside id="music-player" class="music-player" aria-label="Player musical">
+    <div class="player-heading">
+      <div class="player-art" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 31C7 23 6 16 10 12c3-3 7-2 10 2 3-4 7-5 10-2 4 4 3 11-10 19Z" stroke="currentColor" stroke-width="1.2"/><path d="M14 20h3l2-5 3 10 2-5h3" stroke="currentColor" stroke-width=".9" opacity=".6"/></svg></div>
+      <div class="player-track"><p id="track-title"></p><p id="track-artist"></p></div>
+      <button id="player-expand" class="player-icon" aria-label="Abrir lista de músicas e volume" aria-expanded="false" aria-controls="player-drawer"></button>
+    </div>
+    <div class="player-controls">
+      <div class="transport"><button id="track-prev" class="player-icon" aria-label="Faixa anterior"></button><button id="track-play" class="player-icon player-play" aria-label="Reproduzir música" aria-pressed="false"></button><button id="track-next" class="player-icon" aria-label="Próxima faixa"></button></div>
+      <span class="player-time"><span id="track-elapsed">0:00</span><span aria-hidden="true"> / </span><span id="track-duration">0:00</span></span>
+    </div>
+    <input id="track-seek" class="player-seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Posição da música" aria-valuetext="0:00">
+    <p id="player-notice" class="player-notice" role="status" hidden></p>
+    <div id="player-drawer" class="player-drawer" hidden>
+      <div class="player-drawer-heading"><span>Sua trilha</span><span id="track-count"></span></div>
+      <div class="player-volume"><label for="track-volume">Volume</label><input id="track-volume" type="range" min="0" max="1" step=".01" value=".22" aria-label="Volume da música"></div>
+      <div id="track-list" class="track-list" role="group" aria-label="Lista de músicas"></div>
+    </div>
+    <p id="player-announcement" class="sr-only" aria-live="polite"></p>
+    <audio id="soundtrack" preload="none" playsinline></audio>
+  </aside>
+</body>
+</html>

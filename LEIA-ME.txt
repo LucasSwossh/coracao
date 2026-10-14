@@ -1,0 +1,64 @@
+INTEIRO — CORAÇÃO DE VIDRO
+
+COMO ABRIR
+Extraia todos os arquivos para uma mesma pasta e abra dist/index.html.
+Funciona sem instalação, servidor, internet ou bibliotecas externas.
+
+COMO INTERAGIR
+Arraste para inclinar o coração em qualquer direção, até 25 graus.
+As rachaduras aparecem no lado oposto ao arraste.
+Ao soltar, ele retorna suavemente à frente e essas rachaduras recuam.
+Toque três vezes no coração, aguardando a reação entre os toques.
+Depois, toque ou arraste os 12 estilhaços: cada um retorna ao seu encaixe.
+Cada encaixe produz um brilho azul apenas na junção.
+Ao terminar, uma onda de cura percorre o vidro por 1,2 segundo.
+Depois dessa onda, o coração revela uma nova frase.
+Na próxima explosão, a frase anterior desaparece suavemente.
+Aguarde alguns segundos e toque no coração para repetir.
+
+PLAYER MUSICAL
+Use o mini player no canto inferior esquerdo. O áudio começa apenas no play.
+A lista expansível permite escolher entre as 4 músicas e ajustar o volume.
+As faixas carregam sob demanda, sem baixar a playlist inteira ao abrir.
+O player continua tocando durante a interação com o coração.
+Os arquivos MP3 estão na pasta audio; os dados da playlist ficam em player.js.
+
+PERSONALIZAÇÃO
+Abra script.js em um editor de texto.
+O objeto CONFIG fica no início do arquivo:
+- MESSAGE: frase de reserva, caso a lista MESSAGES esteja vazia.
+- MESSAGES: 100 frases sorteadas a cada reconstrução completa.
+- TILT_DEGREES: limite circular de inclinação, em graus.
+- HEAL_SECONDS: duração da onda de cura.
+- JOIN_GLOW_SECONDS: duração do brilho local de cada encaixe.
+- COLORS: cores do fundo, vidro, luz, bordas e mensagem.
+- PULSE_BPM: velocidade de pulsação.
+- PARTICLES: quantidade máxima de partículas por emissão (0 desativa).
+- FRAGMENTS: quantidade de peças (12 por padrão; aceita 3 a 32).
+- MAX_PIXEL_RATIO: limite de resolução para controlar desempenho.
+- ARRIVAL_SECONDS, SCATTER_SECONDS, RETURN_SECONDS: tempos das transições.
+Salve e recarregue a página para aplicar alterações.
+
+ACESSIBILIDADE
+A preferência do sistema por movimento reduzido é respeitada.
+Com teclado: foque a cena e use Enter ou espaço para interagir.
+Após a quebra, Tab seleciona fragmentos; Enter devolve o selecionado.
+Também é possível reconstruir as peças em sequência com Enter na cena.
+
+TECNOLOGIA
+WebGL com geometria volumétrica, luz e reflexos procedurais.
+Sem WebGL, a experiência usa SVG e mantém o ciclo interativo.
+A cena pausa quando a aba não está visível.
+A frase muda a cada reconstrução, com sorteio sem repetição imediata.
+O fundo espacial usa estrelas discretas e uma nebulosidade azul suave. Não há rastreamento nem coleta de dados.
+
+VALIDAÇÃO DESTA VERSÃO
+Verificações de sintaxe, cobertura geométrica das 12 peças e ciclos completos
+com interação simulada em 1200x800, 390x844, 320x568 e 844x390.
+Também verificados modo de movimento reduzido, cliques repetidos e shaders
+por renderização OpenGL fora do navegador. A aparência e a interação em
+navegadores reais ainda precisam de conferência nos dispositivos de destino.
+
+VERSÃO MOBILE
+Layout adaptado a telas verticais e horizontais, barras dinâmicas do navegador,
+controles de toque de 44px e espaço reservado para o player e a frase.
