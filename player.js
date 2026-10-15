@@ -4,7 +4,7 @@ const PLAYLIST = [
     "id": 4,
     "title": "Ivy",
     "artist": "Frank Ocean",
-    "src": "audio/track-04.mp3",
+    "src": "track-04.mp3",
     "duration": 249.29,
     "bytes": 4986336
   },
@@ -12,7 +12,7 @@ const PLAYLIST = [
     "id": 5,
     "title": "Nights",
     "artist": "Frank Ocean",
-    "src": "audio/track-05.mp3",
+    "src": "track-05.mp3",
     "duration": 307.23,
     "bytes": 6145130
   },
@@ -20,7 +20,7 @@ const PLAYLIST = [
     "id": 6,
     "title": "Pink + White",
     "artist": "Frank Ocean",
-    "src": "audio/track-06.mp3",
+    "src": "track-06.mp3",
     "duration": 184.61,
     "bytes": 3692761
   },
@@ -28,7 +28,7 @@ const PLAYLIST = [
     "id": 7,
     "title": "Evergreen (You Didn’t Deserve Me At All)",
     "artist": "Omar Apollo",
-    "src": "audio/track-07.mp3",
+    "src": "track-07.mp3",
     "duration": 220.08,
     "bytes": 4402277
   }
